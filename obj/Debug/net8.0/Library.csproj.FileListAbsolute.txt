@@ -84,3 +84,4 @@ C:\Users\Mehar.Patel\OneDrive - SRKay Consulting Group\Documents\Mehar_Patel\dot
 C:\Users\Mehar.Patel\OneDrive - SRKay Consulting Group\Documents\Mehar_Patel\dotnet\Library_Management\Library\obj\Debug\net8.0\ref\Library.dll
 C:\Users\Mehar.Patel\OneDrive - SRKay Consulting Group\Documents\Mehar_Patel\dotnet\Library_Management\Library\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Mehar.Patel\OneDrive - SRKay Consulting Group\Documents\Mehar_Patel\dotnet\Library_Management\Library\bin\Debug\net8.0\Microsoft.Bcl.Memory.dll
+C:\Users\Mehar.Patel\OneDrive - SRKay Consulting Group\Documents\Mehar_Patel\dotnet\Library_Management\Library\obj\Debug\net8.0\Library.sourcelink.json

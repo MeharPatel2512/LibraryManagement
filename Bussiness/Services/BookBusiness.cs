@@ -85,6 +85,24 @@ namespace Library.Business.Services
             return await _executeStoredProcedure.CallNonQueryStoredProcedure<BookModel.ReturnBookDBModel>(StoredProcedureConstants.RETURN_BOOK, book, true);
         }
 
+        public async Task<DataSet> CheckAvailability(BookModel.CheckAvailabilityModel checkAvailabilityModel){
+
+            DataSet ds = new DataSet();
+
+            ds = await _executeStoredProcedure.CallStoredProcedure<BookModel.CheckAvailabilityModel>(StoredProcedureConstants.CHECK_AVAILABILITY, checkAvailabilityModel, false);
+
+            return ds;
+        }
+
+        public async Task<DataSet> GetBookHistory(BookModel.GetBookHistoryModel getBookHistoryModel){
+
+            DataSet ds = new DataSet();
+
+            ds = await _executeStoredProcedure.CallStoredProcedure<BookModel.GetBookHistoryModel>(StoredProcedureConstants.GET_BOOK_HISTORY, getBookHistoryModel, false);
+
+            return ds;
+        }
+
         // public async Task<DataSet> GetBorrowedBooks(BookModel.GetBorrowedBooksModel getBorrowedBooksModel)
         // {
         //     DataSet ds = new DataSet();

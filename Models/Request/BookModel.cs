@@ -110,5 +110,11 @@ namespace Library.Models.Request
             public int BookId { get; set; } 
             public DateOnly ReturnDate { get; set; }
         }
+        public class CheckAvailabilityModel{
+            public int BookId { get; set; } 
+        }
+        public class GetBookHistoryModel{
+            public int BookId { get; set; } 
+        }
     }
 }

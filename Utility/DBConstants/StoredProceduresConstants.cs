@@ -16,5 +16,7 @@ namespace Library.Utility.DBConstants{
         public static readonly string BORROW_A_BOOK = $"{SchemaConstants.Schema_BorrowBook}.Borrow_a_Book";
         public static readonly string GET_BORROWED_BOOKS = $"{SchemaConstants.Schema_BorrowBook}.Get_Borrowed_Books";
         public static readonly string RETURN_BOOK = $"{SchemaConstants.Schema_BorrowBook}.Return_Book";
+        public static readonly string CHECK_AVAILABILITY = $"{SchemaConstants.Schema_Book}.Check_Availability";
+        public static readonly string GET_BOOK_HISTORY = $"{SchemaConstants.Schema_Book}.Get_Book_History";
     }
 }

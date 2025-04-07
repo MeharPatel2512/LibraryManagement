@@ -1,26 +1,35 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Library.Exceptions;
 using Library.Filters;
-using Library.Repository;
+// using Library.Repository;
 using Newtonsoft.Json;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using Library.Middleware;
+// using Library.Middleware;
+using Library.Extensions;
 using Microsoft.OpenApi.Models;
-using Library.Business.Interface;
-using Library.Business.Services;
+// using Library.Business.Interface;
+// using Library.Business.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<TokenService>();
-builder.Services.AddScoped<IExecuteStoredProcedure, ExecuteStoredProcedure>();
-builder.Services.AddScoped<IRegisterUserBusiness, RegisterUserBusiness>();
-builder.Services.AddScoped<ILoginUserBusiness, LoginUserBusiness>();
-builder.Services.AddScoped<IUserBusiness, UserBusiness>();
-builder.Services.AddScoped<IOtherUserBusiness, OtherUserBusiness>();
-builder.Services.AddScoped<ISubscriptionBusiness, SubscriptionBusiness>();
-builder.Services.AddScoped<IAdminBusiness, AdminBusiness>();
-builder.Services.AddScoped<IBookBusiness, BookBusiness>();
+builder.Services.AddCors(options => {
+    options.AddPolicy("AllowAll",
+    policy => policy.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+});
+
+// builder.Services.AddScoped<TokenService>();
+// builder.Services.AddScoped<IExecuteStoredProcedure, ExecuteStoredProcedure>();
+// builder.Services.AddScoped<IRegisterUserBusiness, RegisterUserBusiness>();
+// builder.Services.AddScoped<ILoginUserBusiness, LoginUserBusiness>();
+// builder.Services.AddScoped<IUserBusiness, UserBusiness>();
+// builder.Services.AddScoped<IOtherUserBusiness, OtherUserBusiness>();
+// builder.Services.AddScoped<ISubscriptionBusiness, SubscriptionBusiness>();
+// builder.Services.AddScoped<IAdminBusiness, AdminBusiness>();
+// builder.Services.AddScoped<IBookBusiness, BookBusiness>();
+builder.Services.ConfigureServices();
 builder.Services.AddHttpContextAccessor();
 
 // builder.Services.AddControllers();
@@ -85,6 +94,8 @@ builder.Services.AddAuthentication(Options => {
     });
 
 var app = builder.Build();
+
+app.UseCors("AllowAll");
 
 app.UseMiddleware<GlobalExceptionMiddleware>();
 app.UseMiddleware<UserIdMiddleware>();

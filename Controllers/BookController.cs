@@ -101,6 +101,30 @@ namespace Library.Controllers
             });
         }
 
+        [HttpPost("[action]")]
+        public async Task<ActionResult> CheckAvailability(BookModel.CheckAvailabilityModel checkAvailabilityModel){
+            var response = await _bookBusiness.CheckAvailability(checkAvailabilityModel);
+            
+            return Ok(new ApiResponse{
+                Error_status = false,
+                Message = MessageConstants.SuccessMessageList,
+                Code = CodeConstants.GET_DATA_SUCCESSFUL_200,
+                Response = response
+            });
+        }
+
+        [HttpPost("[action]")]
+        public async Task<ActionResult> GEtBookHistory(BookModel.GetBookHistoryModel getBookHistoryModel){
+            var response = await _bookBusiness.GetBookHistory(getBookHistoryModel);
+            
+            return Ok(new ApiResponse{
+                Error_status = false,
+                Message = MessageConstants.SuccessMessageList,
+                Code = CodeConstants.GET_DATA_SUCCESSFUL_200,
+                Response = response
+            });
+        }
+
         // [HttpPost("[action]")]
         // public async Task<ActionResult> GetBorrowedBooks([FromBody] BookModel.GetBorrowedBooksModel getBorrowedBooksModel){
         //     var response = await _bookBusiness.GetBorrowedBooks(getBorrowedBooksModel);
